@@ -18,6 +18,7 @@ const db = mysql.createConnection(
 function viewDepartments() {
   db.query("SELECT * FROM department", function (err, results) {
     console.table(results);
+    anotherOne();
   });
 }
 
@@ -32,14 +33,15 @@ function addDepartment() {
     .then((answer) => {
       db.query("INSERT INTO department SET ?", answer, function (err, results) {
         console.log("Department added successfully");
+        anotherOne();
       });
     });
-  anotherOne();
 }
 
 function viewRoles() {
   db.query("SELECT * FROM role", function (err, results) {
     console.table(results);
+    anotherOne();
   });
 }
 
@@ -68,6 +70,7 @@ function addRole() {
       .then((answer) => {
         db.query("INSERT INTO role SET ?", answer, function (err, results) {
           console.log("Role added successfully");
+          anotherOne();
         });
       });
   });
@@ -76,6 +79,7 @@ function addRole() {
 function viewEmployees() {
   db.query("SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN department on role.department_id = department.id LEFT JOIN employee manager on manager.id = employee.manager_id;", function (err, results) {
     console.table(results);
+    anotherOne();
   });
 }
 
@@ -115,6 +119,7 @@ function addEmployee() {
         .then((answer) => {
           db.query("INSERT INTO employee SET ?", answer, function (err, results) {
             console.log("Employee added successfully");
+            anotherOne();
           });
         });
     });
@@ -146,6 +151,7 @@ function updateEmployeeRole() {
         .then((answer) => {
           db.query("UPDATE employee SET role_id = ? WHERE id = ? ", [answer.role_id, answer.id], function (err, results) {
             console.log("Employee updated successfully");
+            anotherOne();
           });
         });
     });
