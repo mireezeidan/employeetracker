@@ -20,6 +20,10 @@ In order to run the program the user must have Inquirer, Dotenv, Mysql2, and Con
 
 To use the program, the user has to type "node index.js" and the main menu will appear in the terminal. Depending on which option the user chooses, that action will then take place.
 
+# Screenshot
+
+![Alt text](../../Desktop/Screen%20Shot%202023-01-26%20at%204.34.53%20PM.png)
+
 # Questions
 
 Click here to view my [Github](https://github.com/mireezeidan)
